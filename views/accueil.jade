@@ -1,0 +1,49 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/jquery.js')
+    
+    
+    body
+      .container-narrow
+        .masthead
+          ul(class="nav nav-pills pull-right")
+            li
+              a(href="/") Home
+            li
+              a(href="/inscription") Inscription
+      h3(class="muted") Bomberman
+      hr
+      - function isEmptyObject(obj) {
+           - var name;
+            - for (name in obj) {
+              - return false;
+            - }
+            - return true;
+        - }
+      - if (!isEmptyObject(message))
+          .mess
+            p #{message}
+      - if (!isEmptyObject(fail))
+          ul.errorsI
+            li= fail
+      form(class="bs-docs-example form-inline",action='/login',method='post')
+
+            
+            label(class="control-label",for="inputSurname",style="width:200px") Pseudo
+            input(name="ps",type="text",id="inputSurname",placeholder="Pseudo")
+            br
+            br
+            label(class="control-label",for="Password",style="width:200px") Mot de passe
+            input(name="pa",type="password",id="Password",placeholder="******")
+            br
+            br
+            
+            input(type="submit",class="btn",value="Se connecter")
+          !=body
+      
+        
+        
+        

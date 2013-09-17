@@ -1,0 +1,45 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery-2.0.0.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/mysocket.js')
+    script(src='/javascripts/js/json2.js')
+    script(src='/javascripts/js/oXHR.js')
+    Script(src='/javascripts/js/classes/Particle.js')
+    script(src='/javascripts/js/classes/Sprite.js')
+    script(src='/javascripts/js/classes/Tileset.js')
+    script(src='/javascripts/js/classes/Map.js')
+    script(src='/javascripts/js/rgp.js')
+    body
+        #divC
+            p Connectés
+            ul#lc
+
+        #invite
+         #close(onclick="document.getElementById('invite').style.display='none'")
+         p(onclick="javascript:inviter()") Inviter à un jeu
+         input(type="hidden",id="player")
+
+        #profil
+         #close1(onclick="document.getElementById('profil').style.display='none';document.getElementById('details').style.display='none'")
+         p(onclick="document.getElementById('details').style.display==='block'?document.getElementById('details').style.display='none':document.getElementById('details').style.display='block'") Mon profil
+         #details
+            span.titre  #{wl[0]}
+            br
+            span.titre Win : 
+            span #{wl[1]} 
+            span.titre Game  
+            span.pourcentage (#{wl[3]}%)
+            br
+            span.titre Lose :  
+            span #{wl[2]} 
+            span.titre Game  
+            span.pourcentage (#{wl[4]}%)
+        #nav p Abandonner
+        #gameboard
+          canvas#canvas votre navigateur ne supporte pas les canvas 
+                !=body
+

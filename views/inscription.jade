@@ -1,0 +1,60 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/jquery.js')
+    body
+      .container-narrow
+        .masthead
+          ul(class="nav nav-pills pull-right")
+            li
+              a(href="/") Home
+            li
+              a(href="/inscription") Inscription
+      .main(style="width:500px;position:absolute;left:30%;top:25%")
+        - function isEmptyObject(obj) {
+           - var name;
+            - for (name in obj) {
+              - return false;
+            - }
+            - return true;
+        - }
+        
+        - if (!isEmptyObject(erreur))
+          ul.errorsI
+            li= erreur
+        - if (!isEmptyObject(errors))
+          ul.errorsI
+            - errors.forEach(function(item){
+              li= item.msg
+            - })
+            
+        form(class="bs-docs-example form-inline",action='/subscribe',method='post')
+
+            label(class="control-label",for="inputFirstName",style="width:150px") Prénom
+            input(name="fn",type="text",id="inputFirstName",placeholder="Prénom")
+            br
+            br
+            label(class="control-label",for="inputLastName",style="width:150px") Nom
+            input(name="ln",type="text",id="inputLastName",placeholder="Nom")
+            br
+            br
+            label(class="control-label",for="inputSurname",style="width:150px") Pseudo
+            input(name="ps",type="text",id="inputSurname",placeholder="Pseudo")
+            br
+            br
+            label(class="control-label",for="Email",style="width:150px") Email
+            input(name="em",type="text",id="Email",placeholder="Email")
+            br
+            br
+            label(class="control-label",for="Password",style="width:150px") Mot de passe
+            input(name="pa",type="password",id="pa",placeholder="******")
+            br
+            br
+            label(class="control-label",for="rePassword",style="width:150px") Re-mot de passe 
+            input(name="pa2",type="password",id="pa2",placeholder="******")
+            br
+            br
+            input(type="submit",class="btn",value="Valider")
+          !=body
